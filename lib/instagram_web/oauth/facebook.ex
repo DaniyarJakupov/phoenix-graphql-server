@@ -4,7 +4,7 @@ defmodule InstagramWeb.Oauth.Facebook do
   def get_info(token) do
     token
     |> get_user # returns user
-    |> get_user_profile_picture("large", token) # returns profile pic
+    |> get_user_profile_picture("small", token) # returns profile pic
     |> normalize # returns normalized data 
   end
 
@@ -24,7 +24,7 @@ defmodule InstagramWeb.Oauth.Facebook do
       avatar: picture_data["data"]["url"],
       first_name: user["first_name"],
       last_name: user["last_name"],
-      email: user["email"],
+      email: user["email"]
     }
   end
 end

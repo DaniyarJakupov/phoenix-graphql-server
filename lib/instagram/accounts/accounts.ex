@@ -12,11 +12,12 @@ defmodule Instagram.Accounts do
   Return the user or if doesn't exist, create one
   """
   def get_user_or_create(attrs, search_params) do
-    case Repo.get_by(User, Map.to_list(search_params))
+    case Repo.get_by(User, Map.to_list(search_params)) do
       nil -> 
         create_user(attrs)
       user ->
         {:ok, user}
+    end
   end
 
   @doc """

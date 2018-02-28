@@ -20,6 +20,16 @@ defmodule Instagram.Reactions do
     end
   end
 
+  def viewer_like_photo(photo_id, user_id) do
+    result = like_photo_exist(photo_id, user_id)
+
+    if result == nil do
+      {:ok, false}
+    else
+      {:ok, true}
+    end
+  end
+
   def create_like_photo(attrs \\ %{}) do
     %LikePhoto{}
     |> LikePhoto.changeset(attrs)
